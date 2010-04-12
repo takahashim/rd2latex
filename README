@@ -1,0 +1,15 @@
+= RD2LaTex
+
+== Install
+
+copy lib/rd/*.rb to RUBYLIBDIR/rd/.
+
+== Usage
+
+ $ rd2 -r rd/rd2latex-lib \
+                --documentclass="jarticle" \
+                --documentclass-option="titlepage" \
+                --title="Ruby Reference Manual" \
+                --author="Yukihiro Matsumoto" \
+                --maketitle --maketoc \
+                manual.rd > manual.tex
