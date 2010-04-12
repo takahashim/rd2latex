@@ -258,9 +258,7 @@ module RD
 
     def apply_to_Code(element, content)
       c = element.content.collect { |c| c.content }.join
-      sep = %w(! @ # $ % & * - _ + | ).find{|s| c !~ /#{s}/}
-      sep or raise "no candidate for verb paren"
-      %Q[\\verb#{sep}#{c}#{sep}]
+      %Q[\\texttt{#{meta_char_escape(c)}}]
     end
 
     def apply_to_Var(element, content)
@@ -320,9 +318,7 @@ module RD
 
     def apply_to_Verb(element)
       c = element.content
-      sep = %w(! @ $ % / * - _ + | ).find{|s| c !~ /#{s}/}
-      sep or raise "no candidate for verb paren"
-      %Q[\\verb#{sep}#{c}#{sep}]
+      %Q[\\texttt{#{meta_char_escape(c)}}]
     end
 
     def apply_to_String(element)
